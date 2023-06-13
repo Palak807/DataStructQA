@@ -6,7 +6,7 @@ class TreeNode(object):
 
 
 class Solution(object):
-    def topView(self, root):
+    def verticalTraversal(self, root):
         mapper = {}
 
         def dfs(x, y, node):
@@ -29,11 +29,7 @@ class Solution(object):
             output[-1].extend(sorted(v))
             old = k[0]
 
-        ans = []
-        for i in output:
-            ans.append((i[0]))
-
-        return ans
+        return output
 
 
 
@@ -48,4 +44,4 @@ root.right.left = TreeNode(6)
 root.right.right = TreeNode(7)
 
 obj = Solution()
-print(obj.topView(root))
+print(obj.verticalTraversal(root))
