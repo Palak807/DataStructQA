@@ -23,3 +23,8 @@ class Solution(object):
                 counts[num * 2] -= 1
         
         return True
+
+obj = Solution()
+arr = [3,1,3,6]
+
+print(obj.canReorderDoubled(arr))
