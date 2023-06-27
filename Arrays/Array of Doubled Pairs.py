@@ -4,27 +4,27 @@ class Solution(object):
         
         for num in arr:
             counts[num] = counts.get(num, 0) + 1
-        
-        arr.sort()
-        
-        for num in arr:
-            if counts[num] == 0: 
+
+        n = [i for i in arr if i < 0]
+        p = [i for i in arr if i >= 0]
+
+        arr = sorted(n, reverse= True) + sorted(p)
+
+        for k in arr:
+            if counts.get(k, 0) == 0:
                 continue
+
+            if counts.get(2 *k, 0) == 0:
+                return False
             
-            if num < 0:  
-                if num % 2 != 0 or num // 2 not in counts or counts[num // 2] == 0:
-                    return False
-                counts[num] -= 1
-                counts[num // 2] -= 1
-            else:  
-                if num * 2 not in counts or counts[num * 2] == 0:
-                    return False
-                counts[num] -= 1
-                counts[num * 2] -= 1
+            counts[k] -= 1
+            counts[2 * k] -= 1
         
         return True
+        
+        
 
 obj = Solution()
-arr = [3,1,3,6]
+arr = [3,6,3,6]
 
 print(obj.canReorderDoubled(arr))
