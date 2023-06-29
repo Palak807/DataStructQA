@@ -1,26 +1,36 @@
-class RandomizedSet:
+import random
 
+class RandomizedSet(object):
     def __init__(self):
-        self.indices = {}
+        self.index = {}
         self.arr = []
 
-    def insert(self, val: int) -> bool:
-        
-        if val in self.indices: return False
-        self.arr.append(val)
-        self.indices[val] = len(self.arr)-1
-        return True
-    
-    def remove(self, val: int) -> bool:
-        
-        if val not in self.indices: return False
-        i = self.indices[val]
-        self.indices[self.arr[-1]] = i
-        self.arr[i] = self.arr[-1]
-        self.indices.pop(val)
-        self.arr.pop()
-        
-        return True
+    def insert(self, val):
+        if val not in self.arr:
+            self.arr.append(val)
+            self.index[val] = True
+            return True
+        return False
 
-    def getRandom(self) -> int:
+    def remove(self, val):
+        if val in self.arr:
+            self.arr.remove(val)
+            del self.index[val]
+            return True
+        return False
+
+    def getRandom(self):
         return random.choice(self.arr)
+ 
+
+
+obj = RandomizedSet()
+param_1 = obj.insert(5)
+param_2 = obj.insert(6)
+param_3 = obj.insert(7)
+param_4 = obj.insert(8)
+param_5 = obj.insert(9)
+param_5 = obj.remove(9)
+param_5 = obj.insert(9)
+print(obj.index, obj.arr)
+print(obj.getRandom())
