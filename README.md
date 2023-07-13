@@ -1,4 +1,5 @@
 # Data Structures : Questions and Solutions 
+![giphy](https://github.com/Palak807/DataStructQA/assets/88302656/7238bfde-6abb-4bd9-a78b-bf8520c69795)
 
 This repository is an extensive collection of questions covering fundamental data structures. You'll find a wide array of meticulously crafted questions, each supplemented with detailed solutions and explanations. The aim of this repository is to provide a comprehensive learning experience for individuals striving to grasp the fundamental data structures.
 
